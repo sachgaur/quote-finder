@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find up to five standout quotes in a YouTube video, with exact captions and timestamped sources.">
+  <title>Quote Finder — words worth keeping</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Quote Finder home"><span class="brand-mark" aria-hidden="true">“</span>Quote Finder<span class="brand-period">.</span></a>
+    <span class="edition">A LITTLE LESS WATCHING.<br>A LITTLE MORE FINDING.</span>
+    <span class="prototype">PROTOTYPE</span>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow"><span class="line" aria-hidden="true"></span> WORDS WORTH KEEPING</p>
+      <h1 id="page-title">Find the best quotes<br>in a <span>YouTube video.</span></h1>
+      <p class="subtitle">Paste a video link to find up to five standout quotes.</p>
+      <form id="analysis-form" novalidate>
+        <label for="video-url">YouTube video URL</label>
+        <div class="input-row">
+          <div class="input-wrap"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m10 13 4-4M8 16l-1 1a4.2 4.2 0 0 1-6-6l4-4a4.2 4.2 0 0 1 6 0M16 8l1-1a4.2 4.2 0 0 1 6 6l-4 4a4.2 4.2 0 0 1-6 0" transform="translate(1 0) scale(.9)"/></svg><input id="video-url" name="url" type="url" placeholder="https://www.youtube.com/watch?v=…" autocomplete="off" spellcheck="false" required aria-describedby="limits form-error"></div>
+          <button id="submit-button" class="primary" type="submit"><span id="submit-label">Find quotes</span><span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="form-meta"><p id="limits">English transcripts <span aria-hidden="true">·</span> Videos up to 2 hours</p><button id="cancel-button" type="button" hidden>Cancel analysis</button></div>
+        <p id="form-error" class="error-message" role="alert" hidden></p>
+      </form>
+      <p id="setup-notice" class="setup-notice" hidden>Setup needed: the app owner hasn’t connected the services yet. You can explore the interface, but quote finding isn’t available.</p>
+      <p id="activity-notice" class="setup-notice" role="status" hidden></p>
+    </section>
+
+    <section id="progress" class="progress-panel" aria-label="Analysis progress" hidden>
+      <h2 class="progress-title">Finding your quotes</h2>
+      <div class="progress-top"><span class="spinner" aria-hidden="true"></span><p id="status" role="status" aria-live="polite">Checking video</p><span id="elapsed">0s</span></div>
+      <p class="progress-help">This may take up to two minutes. Keep this tab open — your quotes will appear here automatically.</p>
+      <ol class="stages"><li data-stage="checking">Check video</li><li data-stage="transcript">Fetch transcript</li><li data-stage="scoring">Find quotes</li><li data-stage="preparing">Prepare results</li></ol>
+    </section>
+
+    <section id="results" aria-labelledby="results-title" hidden>
+      <div class="results-heading"><div><p class="eyebrow">THE SHORTLIST</p><h2 id="results-title" tabindex="-1">Your standout quotes</h2></div><span id="result-count" class="count"></span></div>
+      <div id="video-summary" class="video-summary"></div>
+      <div id="quote-list"></div>
+      <p class="score-note">Scores are an editorial ranking, not a measure of factual accuracy.</p>
+    </section>
+
+    <section id="empty-state" class="empty-state" hidden><span class="empty-mark" aria-hidden="true">“</span><h2>No standalone quotes this time</h2><p>We couldn’t find a suitable standalone quote in this video.</p><p class="muted">Try another conversation, interview, or talk.</p></section>
+
+    <section id="welcome" class="welcome" aria-label="How it works">
+      <div class="welcome-title"><span class="quote-glyph" aria-hidden="true">“</span><div><h2>Good words. Original context.</h2><p>From a whole conversation to the moments that stay with you.</p></div></div>
+      <div class="steps">
+        <div><span class="step-number">01</span><h3>Bring a video</h3><p>An interview, a podcast, a talk.<br>Just one YouTube link.</p></div>
+        <div><span class="step-number">02</span><h3>Find the standouts</h3><p>Up to five distinct excerpts,<br>ranked for clarity and insight.</p></div>
+        <div><span class="step-number">03</span><h3>Keep the source</h3><p>Copy with attribution or jump<br>straight to the original moment.</p></div>
+      </div>
+    </section>
+    <div id="announcement" class="sr-only" aria-live="polite"></div>
+  </main>
+  <footer><span class="footer-symbol" aria-hidden="true">↳</span><p>Quotes come from captions. Check the original video before publishing.</p><span class="footer-wordmark">QF / 01</span></footer>
+</body>
+</html>

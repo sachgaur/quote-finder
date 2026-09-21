@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quote Finder</title>
+  <link rel="stylesheet" href="sidepanel.css">
+  <script src="config.js" defer></script>
+  <script src="sidepanel.js" defer></script>
+</head>
+<body>
+  <header><div class="brand-mark" aria-hidden="true">“</div><div><strong>Quote Finder</strong><span>Words worth keeping</span></div></header>
+  <main>
+    <section id="empty" class="state-card"><h1>Open a YouTube video</h1><p>The quote button will appear beneath a supported video title.</p></section>
+    <section id="ready" hidden>
+      <p class="eyebrow">CURRENT VIDEO</p>
+      <h1 id="video-title"></h1>
+      <button id="start" class="primary" type="button">Find quotes <span aria-hidden="true">↗</span></button>
+    </section>
+    <section id="progress" class="progress" aria-live="polite" hidden>
+      <div><span class="spinner" aria-hidden="true"></span><strong id="status">Checking video</strong><span id="elapsed">0s</span></div>
+      <ol><li data-stage="checking">Video</li><li data-stage="transcript">Transcript</li><li data-stage="scoring">Quotes</li><li data-stage="preparing">Results</li></ol>
+      <button id="cancel" class="text-button" type="button">Cancel analysis</button>
+    </section>
+    <p id="error" class="error" role="alert" hidden></p>
+    <section id="results" hidden>
+      <div class="result-heading"><div><p class="eyebrow">THE SHORTLIST</p><h2>Standout quotes</h2></div><span id="count"></span></div>
+      <p id="summary" class="summary"></p>
+      <div id="quotes"></div>
+      <p class="note">Quotes come from captions. Check the original video before publishing.</p>
+    </section>
+    <section id="no-results" class="state-card" hidden><h2>No standalone quotes found</h2><p>Try another interview, podcast, or talk.</p></section>
+    <div id="announcement" class="sr-only" aria-live="polite"></div>
+  </main>
+</body>
+</html>
